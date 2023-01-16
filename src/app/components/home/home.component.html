@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 box" *ngFor="let item of foodItems; let i = index">
+            <img [src]="foodItemImages[i]" alt="">
+            <h3>{{ item.name}}</h3>
+            <span>{{item.price | currency: 'INR'}}</span>
+            <div *ngIf="item.quantity == 0; else elseBlock">
+                <button class="btn btn-primary" (click)="addItem(item)">Add To Cart</button>
+            </div>
+            <ng-template #elseBlock>
+                <div>
+                    <button class="btn btn-primary plus-minus-btn" (click)="addItem(item)">+</button>
+                    <span class="ml-2" style="color: #000;">{{ item.quantity }}</span>
+                    <button class="btn btn-primary plus-minus-btn" (click)="removeItem(item)">-</button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="isClicked" class="text-center my-4">
+        <button class="btn btn-danger btn-lg" (click)="checkout()">Checkout</button>
+    </div>
+</div>
