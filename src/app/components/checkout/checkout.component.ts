@@ -49,7 +49,7 @@ export class CheckoutComponent implements OnInit {
   computeTotals(orderItems: OrderItem[]) {
     for (let item of orderItems) {
       this.totalQuantity += item.quantity;
-      this.totalPrice += (item.price + item.quantity);
+      this.totalPrice += (item.price * item.quantity);
     }
   }
 
