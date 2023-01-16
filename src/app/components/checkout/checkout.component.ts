@@ -27,6 +27,7 @@ export class CheckoutComponent implements OnInit {
       user: this.formBuilder.group({
         firstName: [''],
         lastName: [''],
+        email: [''],
         contactNo: ['']
       }),
       address: this.formBuilder.group({
@@ -65,6 +66,7 @@ export class CheckoutComponent implements OnInit {
     let user: User = new User(
       userFormDetails.firstName,
       userFormDetails.lastName,
+      userFormDetails.email,
       userFormDetails.contactNo,
       userAddress
     );
